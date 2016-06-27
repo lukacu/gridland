@@ -11,6 +11,6 @@ public @interface Membership {
 
 		String team();
 
-		String passphrase();
+		String passphrase() default "";
 		
 }

@@ -196,11 +196,15 @@ public abstract class Agent {
 
 					try {
 
+						/*
 						ProxyClassLoader loader = new ProxyClassLoader();
 
 						Class<Agent> agentClass = (Class<Agent>) loader
 								.loadClass(agentClassStatic.getCanonicalName());
-
+						*/
+						
+						Class<Agent> agentClass = (Class<Agent>) Agent.class.getClassLoader().loadClass(agentClassStatic.getCanonicalName());
+						
 						Agent agent = agentClass.newInstance();
 
 						agent.id = ((Message.InitializeMessage) message)
